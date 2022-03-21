@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gabarito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+    <script src="script.js"></script>
+    <script>setCSSColors()</script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<nav class="navbar sticky-top navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gabarito</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">Menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#timeSeries">Series Temporais</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#regression">Regressão</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link active" aria-current="page" href="#">|</span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link active" aria-current="page" href="#">Principal</span>
+                </li>
+                <li class="nav-item">
+                    <select id="measurementTypeA" class="form-select"></select>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link active" aria-current="page" href="#">Comparação</span>
+                </li>
+                <li class="nav-item">
+                    <select id="measurementTypeB" class="form-select"></select>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid main-content">
+    <div class="row panel rounded">
+        <h1>Sumário</h1>
+        <div class="col-lg-3">
+            <form id="mainForm">
+                <div class="mb-3">
+                    <label for="estacaoId" class="form-label">Estação Meteorológica</label>
+                    <select id="estacaoId" class="form-select"></select>
+                </div>
+                <div class="mb-3">
+                    <label for="dateIn" class="form-label ">Data Inicial</label>
+                    <input type="date" id="dateIn" class="form-date form-control"></input>
+                    <label for="dateFin" class="form-label">Data Final&nbsp;&nbsp;</label>
+                    <input type="date" id="dateFin" class="form-date form-control"></input>
+                    <div id="dateValidationFeedback" class="invalid-feedback">
+                        <b>Data Inicial</b> não pode ser maior ou igual que <b>Data Final</b>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="measurementType" class="form-label">Periodicidade</label>
+                    <select id="measurementType" class="form-select">
+                        <option selected value="horario">Horário</option>
+                        <option value="diario">Diário</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+
+        </div>
+        <div class="col-lg-3">
+
+            <table class="table" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th id="tblVarA">VarA</th>
+                        <th id="tblVarB">VarB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Máximo</td>
+                        <td id="xMax">Max</td>
+                        <td id="yMax">Max</td>
+                    </tr>
+                    <tr>
+                        <td>Mínimo</td>
+                        <td id="xMin">Min</td>
+                        <td id="yMin">Min</td>
+                    </tr>
+                    <tr>
+                        <td>Desvio Padrão</td>
+                        <td id="xSTD">STD</td>
+                        <td id="ySTD">STD</td>
+                    </tr>
+                    <tr>
+                        <td>Variância</td>
+                        <td id="xVariance">Variance</td>
+                        <td id="yVariance">Variance</td>
+                    </tr>
+                    <tr>
+                        <td>Covariância</td>
+                        <td id="axesCovar" colspan="2">Covariância</td>
+                    </tr>
+                    <tr>
+                        <td>RMSE</td>
+                        <td id="axesRSME" colspan="2">RMSE</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-lg-6">
+            <div id="mapPlot"></div>
+        </div>
+    </div>
+
+    <div class="row panel rounded">
+        <h1 id="timeSeries">Series Temporais</h1>
+        <div class="col">
+            <div id="linePlot1"></div>
+        </div>
+    </div>
+
+    <div class="row panel rounded">
+        <h1 id="regression">Regressão</h1>
+        <div class="col-lg-6">
+            <div id="linePlot2"></div>
+        </div>
+        <div class="col-lg-6">
+            <div id="linePlot3"></div>
+        </div>
+    </div>
+</div>
+<div class="row panel rounded">
+    <div class="col-lg-12">
+        <div class="mb">
+            <div id="scatterLine"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>bindEvents()</script>
+
+</body>
+
+</html>

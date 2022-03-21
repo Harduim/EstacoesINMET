@@ -1,0 +1,75 @@
+body {
+    background-color: var(--cinza_claro);
+}
+
+h1 {
+    font-size: xx-large;
+    margin-bottom: 2rem;
+}
+
+.navbar {
+    background-color: var(--azul_escuro);
+    color: var(--branco_clear);
+}
+
+.navbar a, .navbar span, .navbar span:hover {
+    color: var(--branco_clear);
+}
+
+.navbar a:hover {
+    color: var(--cinza_claro);
+    text-decoration: underline;
+}
+
+.navbar .form-select {
+    margin-top: 0.2rem;
+}
+
+.navbar-toggler-icon {
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+.to-display {
+    display: inline;
+}
+
+.form-select {
+    font-size: small;
+}
+
+
+.form-date {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem .375rem .75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: small;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.table {
+    font-size: small;
+}
+
+.main-content {
+    margin-top: 1rem;
+}
+
+.panel {
+    background-color: var(--branco_clear);
+    padding: .5rem 0rem;
+    margin: .5rem 0rem;
+}
