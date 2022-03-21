@@ -74,7 +74,7 @@ const PLOT_TEMPLATE = {
     },
     yaxis: { gridcolor: CORES.cinza_claro },
     yaxis2: { gridcolor: CORES.branco_clear },
-    margin: { b: 25, t: 60, l: 50, r: 30 },
+    margin: { b: 40, t: 60, l: 50, r: 30 },
     legend: {
       orientation: 'h',
       yanchor: 'middle',
@@ -339,7 +339,7 @@ const plotLineGraph1 = (state) => {
     y: MEDICOES.map(e => e[mVarA]),
     mode: 'lines+markers',
     name: mVarA,
-    marker: { color: CORES.azul_escuro }
+    marker: { color: CORES.roxo }
   }
 
   const trace2 = {
@@ -348,7 +348,7 @@ const plotLineGraph1 = (state) => {
     mode: 'lines+markers',
     name: mVarB,
     yaxis: 'y2',
-    marker: { color: CORES.verde }
+    marker: { color: CORES.laranja_chama }
   }
 
   const data = [trace1, trace2]
@@ -399,7 +399,7 @@ const plotLineGraph2 = (state) => {
       y: real,
       mode: 'lines+markers',
       name: 'Real',
-      marker: { color: CORES.azul_escuro }
+      marker: { color: CORES.roxo }
     }
 
     const trace2 = {
@@ -407,7 +407,7 @@ const plotLineGraph2 = (state) => {
       y: pred,
       mode: 'lines+markers',
       name: 'Extrapolada',
-      marker: { color: CORES.verde }
+      marker: { color: CORES.laranja_chama }
     }
 
     const data = [trace1, trace2]
@@ -435,7 +435,7 @@ const plotScatterLine = (state) => {
     y: MEDICOES.map(e => e[mVarB]),
     mode: 'markers',
     name: mVarA,
-    marker: { color: CORES.azul_escuro }
+    marker: { color: CORES.roxo }
   }
 
   const binCount = 5
@@ -463,8 +463,8 @@ const plotScatterLine = (state) => {
     x: line.map(e => e.mVarA),
     y: line.map(e => e.mVarB),
     mode: 'lines',
-    name: 'Line',
-    marker: { color: CORES.verde }
+    name: 'Média',
+    marker: { color: CORES.laranja_chama }
   }
 
   const data = [trace1, trace2]

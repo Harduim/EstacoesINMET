@@ -8,7 +8,7 @@ h1 {
 }
 
 .navbar {
-    background-color: var(--azul_escuro);
+    background-color: var(--roxo);
     color: var(--branco_clear);
 }
 
@@ -72,4 +72,12 @@ h1 {
     background-color: var(--branco_clear);
     padding: .5rem 0rem;
     margin: .5rem 0rem;
+}
+
+.btn-primary {
+    background-color: var(--roxo);
+}
+
+.btn-primary:hover {
+    background-color: var(--roxo_indigo);
 }
