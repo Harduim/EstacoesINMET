@@ -471,6 +471,7 @@ const plotScatterLine = (state) => {
 
   const layout = {
     template: PLOT_TEMPLATE,
+    
     yaxis: { title: VARSSERIES[measurementType][mVarB] },
     xaxis: { title: VARSSERIES[measurementType][mVarA] },
   }
@@ -488,8 +489,9 @@ const setCSSColors = () => {
 
 const plotEstacoesMap = (state) => {
   const formatText = (e) => {
-    return `Código:${e.CD_ESTACAO} Situação:${e.CD_SITUACAO}`
+    return `${e.CD_ESTACAO} - ${e.SG_ESTADO} ${e.DC_NOME} | Situação:${e.CD_SITUACAO}`
   }
+
   const { ESTACOES, ESTACAO } = state
   const estacao = ESTACOES.filter(e => e.CD_ESTACAO === ESTACAO[0])[0]
 
