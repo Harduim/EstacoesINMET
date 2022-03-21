@@ -575,4 +575,4 @@ const bindEvents = () => {
 }
 
 
-module.exports = { variancia, desvio_padrao, covar, rmse, linear_reg, predict, pearson_corr };
+// module.exports = { variancia, desvio_padrao, covar, rmse, linear_reg, predict, pearson_corr };
