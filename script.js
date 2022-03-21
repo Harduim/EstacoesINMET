@@ -312,7 +312,6 @@ const renderDataTable = (state) => {
   xVariance.innerText = variancia(xAxis).toFixed(1)
   yVariance.innerText = variancia(yAxis).toFixed(1)
   axesCovar.innerText = covar(xAxis, yAxis).toFixed(1)
-  axesRSME.innerText = rmse(xAxis, yAxis).toFixed(1)
 }
 
 const getDateFormatter = (measurementType) => {
