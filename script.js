@@ -278,7 +278,7 @@ const renderEstacaoSelect = (state) => {
       estacaoId.appendChild(option)
     }
   )
-  estacaoId.value = 'A756'
+  estacaoId.value = 'A652'
 }
 
 const renderMeasurementsOptions = (measurementType, selectId) => {
