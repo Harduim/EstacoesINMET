@@ -113,7 +113,7 @@ const variancia = lista => {
 const desvio_padrao = lista => Math.sqrt(variancia(lista))
 
 const covar = (listaX, listaY) => {
-  if (listaX.length !== listaY.length) throw 'listas devem ser do mesmo tamanho'
+  if (listaX.length !== listaY.length) throw new Error('listas devem ser do mesmo tamanho')
 
   const mediaX = media_lista(listaX)
   const mediaY = media_lista(listaY)
