@@ -551,7 +551,7 @@ const bindEvents = () => {
 
   dateIn.value = dtIn
   dateFin.value = dtFin
-  const defaultEstacao = 'A756'
+  const defaultEstacao = 'A652'
 
   storeHorario(defaultEstacao, dtIn, dtFin, update)
   subscribe(renderEstacaoSelect, ['ESTACOES'])
